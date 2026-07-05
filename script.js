@@ -29,7 +29,6 @@ function displayProducts() {
     `;
   });
 }
-
 saveBtn.addEventListener('click', function() {
   let product = {
     name: productName.value,
