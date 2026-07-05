@@ -25,7 +25,8 @@ function save() {
 function calculateTotal() {
   let total = 0;
   products.forEach(function(product) {
-    total += Number(product.price * product.quantity);
+   // Used 'Number' because they're saved as strings
+   total += Number(product.price * product.quantity);
   });
   totalPrice.textContent = total;
 }
@@ -46,7 +47,6 @@ function displayProducts() {
   });
   
   calculateTotal();
- 
 }
 
 saveBtn.addEventListener('click', function() {
