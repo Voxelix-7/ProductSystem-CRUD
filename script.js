@@ -31,7 +31,7 @@ function displayProducts() {
 }
 
 saveBtn.addEventListener('click', function() {
-   if(!productName || !productPrice || !productQuantity) {
+   if(!productName.value || !productPrice.value || !productQuantity.value) {
   message.textContent = "Please enter product's full details"
   return;
  }
