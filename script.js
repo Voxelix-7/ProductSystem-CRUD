@@ -4,7 +4,6 @@ let productName = document.getElementById("productName");
 let message = document.getElementById("message");
 let saveBtn = document.getElementById("saveBtn");
 let productList = document.getElementById("productList");
-
 let products = [];
 let editIndex = null;
 let savedProducts = localStorage.getItem("products");
@@ -29,8 +28,8 @@ function displayProducts() {
     </div>
     `;
   });
- 
 }
+
 saveBtn.addEventListener('click', function() {
   let product = {
     name: productName.value,
@@ -73,4 +72,5 @@ function deleteProduct(index) {
   message.textContent = "Product deleted";
 }
 
+// StartUp
 displayProducts();
