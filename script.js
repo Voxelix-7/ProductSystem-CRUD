@@ -7,8 +7,8 @@ let productList = document.getElementById("productList");
 
 let products = [];
 let editIndex = null;
-
 let savedProducts = localStorage.getItem("products");
+
 if(savedProducts !== null) {
  products = JSON.parse(savedProducts);
 }
@@ -17,17 +17,19 @@ function save() {
 }
 function displayProducts() {
   productList.innerHTML = "";
+ 
   products.forEach(function(product, index) {
     productList.innerHTML += `
     <div class="product-card">
       <h3>${product.name}</h3>
       <p>Price: ${product.price}</p>
       <p>Quantity: ${product.quantity}</p>
-      <button onclick="editProduct"(${index})>Edit</button>
-      <button onclick="deleteProduct"(${index})>Delete</button>
+      <button onclick="editProduct(${index})">Edit</button>
+      <button onclick="deleteProduct(${index})">Delete</button>
     </div>
     `;
   });
+ 
 }
 saveBtn.addEventListener('click', function() {
   let product = {
