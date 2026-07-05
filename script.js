@@ -31,13 +31,15 @@ function displayProducts() {
 }
 
 saveBtn.addEventListener('click', function() {
-  if(null) {return};
-  let product = {
+   if(!productName || !productPrice || !productQuantity) {
+  message.textContent = "Please enter product's full details"
+  return;
+ }
+ let product = {
     name: productName.value,
     price: productPrice.value,
     quantity: productQuantity.value
   };
-
   if(editIndex === null){
     products.push(product);
     message.textContent = "Added product";
