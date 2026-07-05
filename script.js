@@ -69,6 +69,7 @@ function editProduct(index) {
 function deleteProduct(index) {
   products.splice(index, 1);
   save();
+  displayProducts();
   message.textContent = "Product deleted";
 }
 
