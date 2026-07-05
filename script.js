@@ -31,6 +31,7 @@ function displayProducts() {
 }
 
 saveBtn.addEventListener('click', function() {
+  if(null) {return};
   let product = {
     name: productName.value,
     price: productPrice.value,
