@@ -32,8 +32,8 @@ function displayProducts() {
 
 saveBtn.addEventListener('click', function() {
    if(!productName.value || !productPrice.value || !productQuantity.value) {
-  message.textContent = "Please enter product's full details"
-  return;
+     message.textContent = "Please enter product's full details";
+     return;
  }
  let product = {
     name: productName.value,
