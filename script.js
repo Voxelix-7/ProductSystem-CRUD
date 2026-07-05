@@ -1,19 +1,35 @@
+// Added extra breaks for readability..
+let productName = document.getElementById("productName");
 let productQuantity = document.getElementById("productQuantity");
 let productPrice = document.getElementById("productPrice");
-let productName = document.getElementById("productName");
+
 let message = document.getElementById("message");
 let saveBtn = document.getElementById("saveBtn");
 let productList = document.getElementById("productList");
+
 let products = [];
 let editIndex = null;
 let savedProducts = localStorage.getItem("products");
 
+let totalPrice = document.getElementById("totalPrice");
+
 if(savedProducts !== null) {
  products = JSON.parse(savedProducts);
 }
+
 function save() {
   localStorage.setItem("products", JSON.stringify(products));
 }
+
+// Calculates current products' total price if that's okay
+function calculateTotal() {
+  let total = 0;
+  products.forEach(function(product) {
+    total += Number(product.price * product.quantity);
+  });
+  totalPrice.textContent = total;
+}
+
 function displayProducts() {
   productList.innerHTML = "";
  
@@ -23,11 +39,13 @@ function displayProducts() {
       <h3>${product.name}</h3>
       <p>Price: ${product.price}</p>
       <p>Quantity: ${product.quantity}</p>
-      <button onclick="editProduct(${index})">Edit</button>
-      <button onclick="deleteProduct(${index})">Delete</button>
+      <button class="Btn" onclick="editProduct(${index})">Edit</button>
+      <button class="Btn" onclick="deleteProduct(${index})">Delete</button>
     </div>
     `;
   });
+  
+  calculateTotal();
 }
 
 saveBtn.addEventListener('click', function() {
@@ -35,6 +53,7 @@ saveBtn.addEventListener('click', function() {
      message.textContent = "Please enter product's full details";
      return;
  }
+  
  let product = {
     name: productName.value,
     price: productPrice.value,
