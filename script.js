@@ -46,6 +46,7 @@ function displayProducts() {
   });
   
   calculateTotal();
+ 
 }
 
 saveBtn.addEventListener('click', function() {
